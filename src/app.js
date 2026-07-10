@@ -1,4 +1,5 @@
 const express = require('express')
+const noteModel = require("./models/note.model")
 
 const app = express();
 app.use(express.json());
@@ -40,6 +41,6 @@ app.patch("/notes/:index",(req,res) =>{
         message:"notes updated successfully"
     })
 
-});
+}); 
 
 module.exports=app;
