@@ -52,9 +52,24 @@ app.post("/notes", async(req,res) =>{
         descreption:data.descreption
     })
 
-    res.status(201).jason({
+    res.status(201).json({
         message:"note created"
     })
+})
+
+app.get("/notes", async(req,res) =>{
+       
+    const notes = await noteModel.find({
+
+        tittle:"test_tittle"
+
+    }) //Find always returns []
+
+    res.status(200).json({
+        message:"notes fetched successfully",
+        notes:notes
+    })
+     
 })
 
 module.exports=app;
